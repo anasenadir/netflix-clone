@@ -1,0 +1,21 @@
+/* start banner header================================== */
+.nav__header{
+    position: absolute;
+    top: 0;
+    width: calc(100vw - 5rem);
+    left: 2rem;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    z-index: 100;    
+}
+
+.nav__logo{
+    width: 100px;
+    cursor: pointer;
+}
+.nav__login{
+    width: 40px;
+    cursor: pointer;
+}
