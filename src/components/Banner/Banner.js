@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from '../../helpers/axios';
 import { IoAddOutline , IoPlaySharp } from "react-icons/io5";
 import "./Banner.css";
+
+
 const Banner = ({fetchURL}) => {
     const [movie , setMovie] = useState([]);
     const [overviewLength , setOverviewLingth] = useState(0);
@@ -27,7 +29,7 @@ const Banner = ({fetchURL}) => {
 
 
     // console.log(movie.overview.length < 180 ?movie.overview : movie.overview.slice(0 , 180) + " ...");
-    console.log(overviewLength);
+    // console.log(overviewLength);
 
     return (
         <header className='banner'

@@ -1,8 +1,9 @@
 .banner{
-    height: 65vh;
+    height: 70vh;
     position: relative;
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
+    margin-bottom: 1.5rem;
     /* padding: 15px; */
 }
 
@@ -16,14 +17,19 @@
     left: 0;
     /* background-color: black; */
     background: rgb(17,17,16);
-background: linear-gradient(0deg, rgba(17,17,16,1) 0%, rgba(17,17,16,0.6951155462184874) 27%, rgba(17,17,18,0.020045518207282953) 100%);
+background: linear-gradient(0deg, rgba(17,17,16,1) 0%, rgba(17,17,16,0.6951155462184874) 45%, rgba(17,17,18,0.020045518207282953) 100%);
     z-index: 1;
 }
+
+
+/* start banner content============================================= */
 
 .banner__content{
     z-index: 2;
     color: white;
-    margin-left: 4rem;
+    margin-left: 2rem;
+    position: absolute;
+    bottom: 22%;
 }
 
 .banner__title{

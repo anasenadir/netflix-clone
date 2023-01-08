@@ -1,10 +1,12 @@
 import Row from "./Row/Row"
 import requests from "../helpers/requests"
 import Banner  from "./Banner/Banner";
+import Navbar from "./Navbar/Navbar";
 
 const Index = ()=>{
     return (
-        <div>
+        <div className="app">
+            <Navbar />
             <Banner fetchURL={requests.fetchTopRated} />
             <Row  
             title="Tranding " 

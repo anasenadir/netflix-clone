@@ -11,7 +11,7 @@ const Row = ({title , fetchURL , isLargeRow})=>{
     useEffect( () => {
         async function fetchData(){
             let response = await axios.get(fetchURL);
-            // console.log(response.data.results);
+            console.log(response);
             setMovies(response.data.results);
         }
 
@@ -19,7 +19,7 @@ const Row = ({title , fetchURL , isLargeRow})=>{
     } , [fetchURL]);
     // console
     return <div className="row">
-        <h3>{title}</h3>
+        <h3 className="row__title">{title}</h3>
 
         <div className="row__posters">
             {movies.map((movie) =>{
