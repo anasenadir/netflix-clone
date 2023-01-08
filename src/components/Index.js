@@ -1,11 +1,11 @@
 import Row from "./Row/Row"
 import requests from "../helpers/requests"
-import { Banner } from "./Banner/Banner";
+import Banner  from "./Banner/Banner";
 
 const Index = ()=>{
     return (
         <div>
-            <Banner />
+            <Banner fetchURL={requests.fetchTopRated} />
             <Row  
             title="Tranding " 
             fetchURL={requests.fetchTrending}
