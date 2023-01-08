@@ -1,16 +1,22 @@
 /* start banner header================================== */
-.nav__header{
-    position: absolute;
+.nav{
+    position: fixed;
     top: 0;
     width: calc(100vw - 5rem);
-    left: 2rem;
-    padding: 20px 0;
+    width: 100%;
+    padding: .7rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center; 
     z-index: 100;    
+    transition: 0.3s ease;
 }
-
+.show{
+    background-color:rgb(17,17,16) ;
+}
+/* .hide{
+    background-color:rgba(17, 17, 16, 0) ;
+} */
 .nav__logo{
     width: 100px;
     cursor: pointer;
@@ -18,4 +24,18 @@
 .nav__login{
     width: 40px;
     cursor: pointer;
+}
+
+/* mobile media query======================== */
+@media only screen and (max-width: 600px) {
+    .nav{
+        padding: 0.7rem 1.4rem;
+    }
+
+    .nav__logo{
+        width: 85px;
+    }
+    .nav__login{
+        width: 35px;
+    }
 }

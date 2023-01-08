@@ -29,7 +29,7 @@ background: linear-gradient(0deg, rgba(17,17,16,1) 0%, rgba(17,17,16,0.695115546
     color: white;
     margin-left: 2rem;
     position: absolute;
-    bottom: 22%;
+    bottom: 15%;
 }
 
 .banner__title{
@@ -60,3 +60,25 @@ background: linear-gradient(0deg, rgba(17,17,16,1) 0%, rgba(17,17,16,0.695115546
     /* width: 70vw; */
     font-size: 0.9rem;
 }
+
+
+
+
+/* mobile media query======================== */
+@media only screen and (max-width: 600px ) {
+    .banner{
+        margin-bottom: 1rem;
+    }
+    .banner__content{
+        bottom: 10%;
+        margin-left: 1.4rem;
+    }
+    .btns{
+        padding: 3px 10px;
+    }
+    .banner__overview{
+        width: 90vw;
+        line-height: 1.2rem;
+    }
+}
+
