@@ -5,7 +5,7 @@ import { Banner } from "./Banner/Banner";
 const Index = ()=>{
     return (
         <div>
-            {/* <Banner / > */}
+            <Banner />
             <Row  
             title="Tranding " 
             fetchURL={requests.fetchTrending}

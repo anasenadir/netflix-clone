@@ -1,7 +1,9 @@
+import Index from "./components/Index";
+import './App.css'
 function App() {
   return (
     <div className="App">
-        hello
+        <Index />
     </div>
   );
 }
