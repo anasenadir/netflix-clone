@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import "./Row.css";
 import axios from "../../helpers/axios";
-import requests from "../../helpers/requests";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
 
-const base_img_url = "https://image.tmdb.org/t/p/w500"; 
 
-const Row = ({title , fetchURL , isLargeRow})=>{
+const base_img_url = "https://image.tmdb.org/t/p/w500"; 
+const Row = ({title , fetchURL , isLargeRow  ,globalIndexTrailer ,setGlobalIndexTrailer })=>{
     const [movies , setMovies] = useState([]);
+    const [localRowTrailer , setlocalRowTrailer]  = useState(''); 
     const [trailerURL , setTrailerURL] = useState('');
+
     useEffect( () => {
         async function fetchData(){
             let response = await axios.get(fetchURL);
@@ -19,13 +20,19 @@ const Row = ({title , fetchURL , isLargeRow})=>{
     } , [fetchURL]);
 
 
+    // compoaring the local component trailer with the global Component Trailer
+    // to prevent playing more then one trailer at once 
+    useEffect(()=>{
+        if(globalIndexTrailer !== localRowTrailer){
+            setTrailerURL('');
+        }else{
+            setTrailerURL(globalIndexTrailer);
+        }
+    } , [globalIndexTrailer ])
+
     const handlePlayFunc = (movie)=>{
-        // if(trailerURL == movie)
-        //     setTrailerURL('');
-        // else
-        //     setTrailerURL(movieId);
         // search for a movie by name if name is exists
-        
+        // dispatch(setMovieTr(''));
         movieTrailer(movie?.name ||movie?.title || movie?.original_title || "").then((url)=>{
             /**
              * to understand what these clases ("URL" , "URLSearchParams") do;
@@ -48,13 +55,15 @@ const Row = ({title , fetchURL , isLargeRow})=>{
              */
 
             const urlParams = new URLSearchParams(new URL(url).search);
+            // dispatch(setMovieTr(urlParams.get('v')));
             if(urlParams.get('v') == trailerURL){
-                setTrailerURL('');
+                setGlobalIndexTrailer('')
+                setlocalRowTrailer('')
             }else{
-                setTrailerURL(urlParams.get('v'));
+                setGlobalIndexTrailer(urlParams.get('v'))
+                setlocalRowTrailer(urlParams.get('v'))
             }
         }).catch((e)=>console.log(e));
-        console.log(movie.name)
     }
 
 
@@ -81,13 +90,6 @@ const Row = ({title , fetchURL , isLargeRow})=>{
             })}
 
         </div>
-        {/* {trailerURL && <div style={
-            {height:100 ,
-            backgroundColor:'red',
-            display: play.display
-            }}>
-            kfjkjfk
-        </div>} */}
         {trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
     </div>
 }

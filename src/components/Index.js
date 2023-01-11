@@ -2,8 +2,10 @@ import Row from "./Row/Row"
 import requests from "../helpers/requests"
 import Banner  from "./Banner/Banner";
 import Navbar from "./Navbar/Navbar";
+import { useState } from "react";
 
 const Index = ()=>{
+    const [globalIndexTrailer ,setGlobalIndexTrailer] = useState('');
     return (
         <div className="app">
             <Navbar />
@@ -11,15 +13,16 @@ const Index = ()=>{
             <Row  
             title="Tranding " 
             fetchURL={requests.fetchTrending}
+            setGlobalIndexTrailer={setGlobalIndexTrailer} globalIndexTrailer={globalIndexTrailer}
             isLargeRow
             />
-            <Row  title="Action Movies " fetchURL={requests.fetchActionMovies}/>
-            <Row  title="Comedy Movies " fetchURL={requests.fetchComedyMovies}/>
-            <Row  title="Horro Movies" fetchURL={requests.fetchHorrorMovies}/>
-            <Row  title="Documentaries" fetchURL={requests.fetchDocumentaries}/>
-            <Row  title="Netflix Originals" fetchURL={requests.fetchNetflixOriginals}/>
-            <Row  title="Romantice Movies" fetchURL={requests.fetchRomanceMovies}/>
-            <Row  title="Top Rated" fetchURL={requests.fetchTopRated}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Action Movies " fetchURL={requests.fetchActionMovies}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Comedy Movies " fetchURL={requests.fetchComedyMovies}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Horro Movies" fetchURL={requests.fetchHorrorMovies}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Documentaries" fetchURL={requests.fetchDocumentaries}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Netflix Originals" fetchURL={requests.fetchNetflixOriginals}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Romantice Movies" fetchURL={requests.fetchRomanceMovies}/>
+            <Row globalIndexTrailer={globalIndexTrailer} setGlobalIndexTrailer={setGlobalIndexTrailer} title="Top Rated" fetchURL={requests.fetchTopRated}/>
         </div>
     );
 }
