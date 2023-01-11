@@ -2,6 +2,7 @@ import './Navbar.css';
 import logo from '../../assets/Logonetflix.png';
 import logoAvatar from "../../assets/Netflix-avatar.png"
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = ()=>{
     const [navState , setNavState] = useState(false);
@@ -14,15 +15,22 @@ const Navbar = ()=>{
             
         });
         
-        return () => {
-            window.removeEventListener('scroll');
-        };
+        // return () => {
+        //     window.removeEventListener('scroll');
+        // };
 
     }, [])
 
     return <div className={`nav ${navState && 'show'}`}>
-            <img className='nav__logo' src={logo} alt="" />
-            <img className='nav__login' src={logoAvatar} alt="" />
+            <Link to='/'>
+                <img className='nav__logo' src={logo} alt="" />
+            </Link>
+            <div className='nav__links_container'>
+                <button className='nav__signin__button'>Sign in</button>
+                <Link to="/login">
+                    <img className='nav__login' src={logoAvatar} alt="" />
+                </Link>
+            </div>
         </div>
 }
 

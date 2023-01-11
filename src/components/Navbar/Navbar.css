@@ -21,9 +21,21 @@
     width: 100px;
     cursor: pointer;
 }
+.nav__links_container{
+    display: flex;
+    align-items: center;
+}
+.nav__signin__button{
+    padding: 6px 15px;
+    border: 0;
+    background-color: #e50914;
+    /* background-color: #f40612; */
+    color: white;
+}
 .nav__login{
     width: 40px;
     cursor: pointer;
+    margin-left: 15px;
 }
 
 /* mobile media query======================== */
