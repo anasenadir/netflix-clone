@@ -1,6 +1,8 @@
 import Index from "./components/Index";
 import Home from "./pages/home/Home";
-import Login from "./pages/Login/Login";
+import Signin from "./pages/Signin/Signin";
+import Signup from "./pages/Signup/Signup";
+import Profile from "./pages/profile/Profile";
 import { Link , Route , Routes ,  BrowserRouter} from "react-router-dom";
 import './App.css'
 function App() {
@@ -9,7 +11,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path='/' element={<Home />}/>
-          <Route path='/login' element={<Login />}/>
+          <Route path='/signin' element={<Signin />}/>
+          <Route path="/signup" element={<Signup/>} />
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </BrowserRouter>
     </div>

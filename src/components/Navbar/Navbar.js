@@ -26,8 +26,12 @@ const Navbar = ()=>{
                 <img className='nav__logo' src={logo} alt="" />
             </Link>
             <div className='nav__links_container'>
-                <button className='nav__signin__button'>Sign in</button>
-                <Link to="/login">
+                <button className='nav__signin__button'>
+                    <Link to='/signin'>
+                        Sign in
+                    </Link>
+                </button>
+                <Link to="/signin">
                     <img className='nav__login' src={logoAvatar} alt="" />
                 </Link>
             </div>

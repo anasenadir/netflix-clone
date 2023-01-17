@@ -8,3 +8,13 @@ body{
     overflow-x: hidden ;
     background-color: #111110;
 }
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}

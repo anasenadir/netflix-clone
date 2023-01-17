@@ -32,6 +32,10 @@
     /* background-color: #f40612; */
     color: white;
 }
+
+.nav__signin__button a:hover{
+    color: white;
+}
 .nav__login{
     width: 40px;
     cursor: pointer;
