@@ -1,0 +1,103 @@
+.profile__container{
+    position: relative;
+    /* background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/935156fb-9579-4fc2-ad94-70680402b8ef/7a7f8fa9-8573-484e-bfd0-7cd9e7136c2e/MA-fr-20230109-popsignuptwoweeks-perspective_alpha_website_medium.jpg'); */
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__body{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    /* width: 70vw; */
+}
+.profile__body__title{
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: white;
+    /* width: 100%;
+    text-align: start; */
+}
+
+.profile__info{
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    width: 60vw;
+    color: white;
+    /* width: 100%;
+    text-align: start; */
+}
+.profile__avatar{
+    width: 80px;
+}
+.profile__info__details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+.profile__info__details input{
+    padding: 8px 15px;
+    border: 0;
+    background: #6e6969;
+    color: white;
+    outline: 0;
+}
+.profile__details__button{
+    padding: 8px 15px;
+    border: 0;
+    background-color: #e50914;
+    color: white;
+}
+/* .signup__page{
+    position: relative;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/935156fb-9579-4fc2-ad94-70680402b8ef/7a7f8fa9-8573-484e-bfd0-7cd9e7136c2e/MA-fr-20230109-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+/* } */
+.profile__info__plans__title{
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 1.08rem;
+    border-bottom: 1px solid #6e6969;
+}
+.profile__info__plans{
+    
+}
+.profile__plans__renewal_date{
+    font-size: 14px;
+    color: #cdcdcd;
+}
+.plan__type{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 10px; */
+    margin: 30px;
+    align-items: center;
+}
+.plan__type__name{
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #cdcdcd;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.plan__type__button{
+    padding: 7px 17px;
+    border: 0;
+    font-size: 14px;
+    background-color: #e50914;
+    color: white;
+}
+
+.plan__type__button.current{
+    background-color: #6e6969;
+}
