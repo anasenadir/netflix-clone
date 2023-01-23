@@ -11,18 +11,30 @@ import { useDispatch } from "react-redux";
 
 
 import './App.css'
+import { useEffect } from "react";
 function App() {
   const dispatchUserState = useDispatch();
-  onAuthStateChanged(auth , user=>{
-        if(user){
-            console.log('login');
-            dispatchUserState(loginUser(user.email));
-        }
-        else{
-            console.log('logout');
-            dispatchUserState(logoutUser());
-        }
-    })
+
+
+  useEffect(()=>{
+    console.log(localStorage.getItem('email'));
+    if(!localStorage.getItem('email')){  
+        onAuthStateChanged(auth , user=>{
+            if(user){
+                console.log('login');
+                localStorage.setItem('email',user.email);
+                dispatchUserState(loginUser(user.email));
+            }
+            // else{
+            //     console.log('logout');
+            //     localStorage.removeItem('emial');
+            //     dispatchUserState(logoutUser());
+            // }
+        })
+    }else{
+      dispatchUserState(loginUser(localStorage.getItem('email')));
+    }
+  },[])
   return (
     <div className="App">
       <BrowserRouter>
