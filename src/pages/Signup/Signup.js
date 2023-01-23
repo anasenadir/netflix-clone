@@ -1,14 +1,19 @@
 import Navbar from "../../components/Navbar/Navbar";
 import { IoIosArrowForward } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css"
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 const Signup = () => {
+    const usersLoginState  = useSelector(state => state.user.user);
+    const navigate         = useNavigate();
 
+    useEffect (()=>{
+        if(usersLoginState || localStorage.getItem('email') !== null){
+            return navigate('/');
+        }
+    }, [usersLoginState])
 
-    // const handleSubmit = (e)=>{
-    //     e.preventDefault();
-    //     // route('login')
-    // }
     return  <div className="signup__page">
                 <Navbar />
                 <div className="signup__content__body">
