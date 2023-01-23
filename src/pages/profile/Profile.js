@@ -37,7 +37,7 @@ const Profile  = () => {
             <h2 className="profile__body__title">Edit Profile</h2>
             <div className="profile__info">
                 <img className="profile__avatar" src={profile_avatar} alt="avatar" />
- 
+
                 <div className="profile__info__details">
                     <input type="text" readOnly value={userEmail ? userEmail : ""}/>
                     <h5 className="profile__info__plans__title">Plan (Current Plan Premium)</h5>
