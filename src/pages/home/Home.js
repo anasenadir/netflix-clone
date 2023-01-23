@@ -2,10 +2,21 @@ import Row from "../../components/Row/Row"
 import requests from "../../helpers/requests"
 import Banner  from "../../components/Banner/Banner";
 import Navbar from "../../components/Navbar/Navbar";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 const Home = ()=>{
     const [globalIndexTrailer ,setGlobalIndexTrailer] = useState('');
+    const userEmail = useSelector(state => state.user.user); 
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(!userEmail && !localStorage.getItem('email')){
+            return navigate('/signup');
+        }
+    }, [userEmail])
+
+
     return (
         <div className="app">
             <Navbar />
