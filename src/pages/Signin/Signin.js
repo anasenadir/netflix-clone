@@ -10,22 +10,25 @@ const Signin = ()=>{
     const navigate  = useNavigate();
     const usersLoginState = useSelector(state => state.user.user); 
     useEffect(()=>{
-        if(usersLoginState){
+        if(usersLoginState || localStorage.getItem('email') !== null){
             return navigate('/');
         }
     }, [usersLoginState])
 
     const signup = (e)=> {
         e.preventDefault();
-        createUserWithEmailAndPassword
-        (auth , email.current.value , password.current.value).catch((error)=>console.log(error));
+        createUserWithEmailAndPassword(auth , email.current.value , password.current.value)
+        .catch((error)=>console.log(error));
+
+        
     }
 
     const login = (e)=> {
         e.preventDefault();
         signInWithEmailAndPassword(auth , 
             email.current.value , 
-            password.current.value).then(user => {
+            password.current.value).then(data => data.user ).then(user =>{
+                localStorage.setItem('email',user.email);
                 return navigate('/');
             })
         .catch(error => console.log(error));
