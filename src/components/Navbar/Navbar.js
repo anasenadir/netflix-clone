@@ -17,16 +17,12 @@ const Navbar = ()=>{
                 setNavState(false);
             
         });
-        
-        // return () => {
-        //     window.removeEventListener('scroll');
-        // };
 
     }, [])
 
     return <div className={`nav ${navState && 'show'}`}>
             {
-                usersLoginState ? 
+                usersLoginState || localStorage.getItem('email') ? 
                 <Link to='/'>
                     <img className='nav__logo' src={logo} alt="" />
                 </Link>
@@ -37,17 +33,18 @@ const Navbar = ()=>{
             }
             <div className='nav__links_container'>
                 {
-                !usersLoginState &&
-                <button className='nav__signin__button'>
-                    <Link to='/signin'>
-                        Sign in
-                    </Link>
-                </button>
+                !usersLoginState  && !localStorage.getItem('email') ? 
+                <Link to='/signin'>
+                    <button className='nav__signin__button'>
+                            Sign in
+                    </button>
+                </Link>
+                :
+                <Link to="/profile">
+                    <img className='nav__login' src={logoAvatar} alt="profilr__logo" />
+                </Link>
                 }
                 
-                <Link to="/profile">
-                    {usersLoginState && <img className='nav__login' src={logoAvatar} alt="" />}
-                </Link>
             </div>
         </div>
 }
