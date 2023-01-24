@@ -21,6 +21,7 @@ const Navbar = ()=>{
     }, [])
 
     return <div className={`nav ${navState && 'show'}`}>
+    {/* // return <div className='nav show'> */}
             {
                 usersLoginState || localStorage.getItem('email') ? 
                 <Link to='/'>
@@ -34,11 +35,11 @@ const Navbar = ()=>{
             <div className='nav__links_container'>
                 {
                 !usersLoginState  && !localStorage.getItem('email') ? 
-                <Link to='/signin'>
                     <button className='nav__signin__button'>
+                <Link to='/signin'>
                             Sign in
-                    </button>
                 </Link>
+                    </button>
                 :
                 <Link to="/profile">
                     <img className='nav__login' src={logoAvatar} alt="profilr__logo" />
@@ -47,6 +48,11 @@ const Navbar = ()=>{
                 
             </div>
         </div>
+
+    // return <div className={`nav ${navState && 'show'}`}>
+    //         <img className='nav__logo' src={logo} alt="" />
+    //         <img className='nav__login' src={logoAvatar} alt="" />
+    //     </div>
 }
 
 
