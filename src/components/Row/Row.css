@@ -1,21 +1,11 @@
-.row{
-    overflow: hidden;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
 .row__title{
     color: white;
     margin: 0;
     margin-left: 1.4rem;
     padding: 0;
 }
-
-.row__posters{
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 20px 0 20px 10px;
-    padding-left: calc(2rem - 10px);
+.swiper-wrapper{
+    padding: 20px;
 }
 .row__posters::-webkit-scrollbar{
     display: none;
@@ -28,6 +18,7 @@
     margin-right: 10px;
     transition: transform 0.3s ease;
     cursor: pointer;
+    user-select: none;
 }
 .largRow {
     height: 250px;

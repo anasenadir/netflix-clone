@@ -3,10 +3,12 @@ import "./Row.css";
 import axios from "../../helpers/axios";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
-
-
-const base_img_url = "https://image.tmdb.org/t/p/w500"; 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
 const Row = ({title , fetchURL , isLargeRow  ,globalIndexTrailer ,setGlobalIndexTrailer })=>{
+    const base_img_url = "https://image.tmdb.org/t/p/w500"; 
     const [movies , setMovies] = useState([]);
     const [localRowTrailer , setlocalRowTrailer]  = useState(''); 
     const [trailerURL , setTrailerURL] = useState('');
@@ -74,24 +76,30 @@ const Row = ({title , fetchURL , isLargeRow  ,globalIndexTrailer ,setGlobalIndex
             autoplay: 1
         }
     }
-    return <div className="row">
+    return <>
         <h3 className="row__title">{title}</h3>
-
-        <div className="row__posters">
-            {movies.map((movie) =>{
-                return <img 
-                key={movie.id}
-                // className={isLargeRow ? 'row__poster largRow' : 'row__poster'}
-                className={`row__poster ${isLargeRow && 'largRow'}`}
-                src={isLargeRow ? `${base_img_url}${movie.poster_path}` : `${base_img_url}${movie.backdrop_path}`} 
-                alt={movie.title}
-                onClick={()=>{handlePlayFunc(movie)}}
-                />
-            })}
-
-        </div>
-        {trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
-    </div>
+        <Swiper 
+                spaceBetween={10}
+                slidesPerView={isLargeRow ? 7.8 : 6}
+                >
+                {movies.map((movie) =>{
+                    // return 
+                    if(movie.backdrop_path){
+                    return <SwiperSlide  key={movie.id} >
+                        <img 
+                        key={movie.id}
+                        // className={isLargeRow ? 'row__poster largRow' : 'row__poster'}
+                        className={`row__poster ${isLargeRow && 'largRow'}`}
+                        src={isLargeRow ? `${base_img_url}${movie.poster_path}` : `${base_img_url}${movie.backdrop_path}`} 
+                        alt={movie.title}
+                        onClick={()=>{handlePlayFunc(movie)}}
+                        />
+                    </SwiperSlide>
+                    }
+                })}
+        </Swiper>
+        {trailerURL && <YouTube videoId={trailerURL} style={{margin:"0 25px"}} opts={opts} />}
+    </>
 }
 
 
