@@ -3,12 +3,15 @@ import { Link, Route, useNavigate } from "react-router-dom";
 import "./signin.css"
 import { useEffect, useRef } from "react"
 import { auth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "../../helpers/firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {loginUser} from "../../helpers/store/slices/userSlice";
 const Signin = ()=>{
     const email = useRef('');
     const password = useRef('');
     const navigate  = useNavigate();
     const usersLoginState = useSelector(state => state.user.user); 
+
+    const dispatchUserState = useDispatch();
     useEffect(()=>{
         if(usersLoginState || localStorage.getItem('email') !== null){
             return navigate('/');
@@ -29,6 +32,7 @@ const Signin = ()=>{
             email.current.value , 
             password.current.value).then(data => data.user ).then(user =>{
                 localStorage.setItem('email',user.email);
+                dispatchUserState(loginUser(user.email));
                 return navigate('/');
             })
         .catch(error => console.log(error));

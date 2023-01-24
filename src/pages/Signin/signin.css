@@ -37,7 +37,7 @@
     z-index: 1;
     color: white;
     border-radius: 5px;
-    background-color: rgb(11 10 10 / 80%);
+    background-color: rgba(11, 10, 10, 0.8);
 }
 .signin__form .signin__title{
     text-align: start;
