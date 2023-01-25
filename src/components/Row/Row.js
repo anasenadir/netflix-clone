@@ -3,6 +3,10 @@ import "./Row.css";
 import axios from "../../helpers/axios";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
+
+// icons
+import { AiOutlineHeart ,AiTwotoneHeart } from "react-icons/ai";
+import { FcLike } from "react-icons/fc";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -85,7 +89,12 @@ const Row = ({title , fetchURL , isLargeRow  ,globalIndexTrailer ,setGlobalIndex
                 {movies.map((movie) =>{
                     // return 
                     if(movie.backdrop_path){
-                    return <SwiperSlide  key={movie.id} >
+                    return <SwiperSlide  key={movie.id} className="poster__wrapper">
+
+                        <div className="poster__favorites">
+                            <AiOutlineHeart className="heart default__heart"/>
+                            <FcLike  className="heart"/>
+                        </div>
                         <img 
                         key={movie.id}
                         // className={isLargeRow ? 'row__poster largRow' : 'row__poster'}
