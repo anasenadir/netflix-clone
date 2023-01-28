@@ -53,15 +53,8 @@
     background-color: #e50914;
     color: white;
 }
-/* .signup__page{
-    position: relative;
-    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/935156fb-9579-4fc2-ad94-70680402b8ef/7a7f8fa9-8573-484e-bfd0-7cd9e7136c2e/MA-fr-20230109-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
-/* } */
+
+
 .profile__info__plans__title{
     margin: 0;
     padding-bottom: 5px;
@@ -101,3 +94,38 @@
 .plan__type__button.current{
     background-color: #6e6969;
 }
+
+
+@media only screen and (max-width:600px){
+    .profile__body{
+        align-items: center;
+        margin: 50px 0;
+    }
+    .profile__body__title{
+        font-size: 2rem;
+    }
+    .profile__info{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .profile__avatar{
+        width: 50px;
+    }
+    .profile__info__details{
+        width: 75vw;
+        gap: 7px;
+    }
+    .profile__info__details input{
+        font-size: .8rem;
+    }
+    .profile__info__plans__title{
+        font-size: .8rem;
+    }
+    .profile__plans__renewal_date{
+        font-size: .75;
+    }
+    .plan__type{
+        margin: 20px 0;
+    }
+} 

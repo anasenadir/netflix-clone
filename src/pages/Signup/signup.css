@@ -67,3 +67,41 @@
 .signup__icon__arrow{
     font-size: 1.4rem;
 }
+
+@media only screen and (max-width:600px){
+    .signup__content__body{
+        width: 80vw;
+    }
+    .signup__content__body .signup__title{
+        font-size: 1.7rem;
+    }
+    .signup__content__body .signup__sub__title{
+        font-size: 1.2rem;
+    }
+    .signup__title__footer{
+        font-size: .7rem;
+        margin-bottom: 5px;
+    }
+    .signup__form{
+        width: 80vw;
+    }
+    .signup__content__body .signup__form .signup__input{
+        width: 60%;
+    }
+    .signup__content__body .signup__form .signup__input_button{
+        width: 40%;
+        font-size: .7rem;
+    }
+    .signup__icon__arrow{
+        font-size: .9rem;
+    }
+} 
+
+@media only screen and (max-width:900px){
+    .signup__content__body{
+        width: 70vw;
+    }
+    .signup__content__body .signup__form .signup__input_button{
+        font-size: 1rem;
+    }
+}
