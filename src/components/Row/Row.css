@@ -1,11 +1,16 @@
+.swiper{
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+}
 .row__title{
     color: white;
     margin: 0;
-    margin-left: 1.4rem;
+    margin-left: 2.3rem;
     padding: 0;
+    font-size: 1.4rem;
 }
 .swiper-wrapper{
-    padding: 20px;
+    padding: 10px 33px 35px
 }
 .row__posters::-webkit-scrollbar{
     display: none;
@@ -16,58 +21,71 @@
     transition: transform 0.3s ease;
     cursor: pointer;
     user-select: none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .poster__wrapper:hover{
     transform: scale(1.08);
+    outline: 5px solid white;
+    z-index: 10;
 }
-.poster__wrapper:hover .poster__favorites{
-    /* transform: scale(1.08); */
-    /* top: 0px; */
-    display: flex;
-    justify-content: flex-end;
-    background-color: #111110;
-    transform: scale(1);
-    opacity: 1;
-    visibility: visible;
-    background: rgb(17,17,16);
-    background: linear-gradient(0deg, rgb(17 17 16 / 0%) 0%, rgb(17 17 16 / 8%) 43%, rgb(17 17 16) 100%);
+.caret__down{
+    display: none;
 }
-.poster__favorites{
+.active{
+    transform: scale(1.08);
+    outline: 5px solid white;
+    z-index: 10;
+    position: relative;
+}
+.active .caret__down{
+    display: inline;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: end;
-    transition: .3s;
-    padding: 5px 7px;
-    transform: scale(.8);
-    opacity: 0;
-    visibility: hidden;
+    bottom: -18px;
+    font-size: 20px;
+    left: 50%;
+    color: white;
+    transform: translateX(-50%);
+}
+
+.hide{
+    display: none;
 }
 
 .poster__favorites .heart{
     color: #f44336;
     font-size: 22px;
     z-index: 100;
+    /* display: none; */
 }
 .row__poster {
-    object-fit: contain;
+    object-fit: cover;
     width:  100%;
-    height: 120px;
+    height: 90px;
 }
 .largRow {
     height: 250px;
 }
+.youtube__video{
+    position:relative; 
+    top:-35px;
+}
 @media only screen and (max-width:600px){
+    .swiper-wrapper{
+        padding: 10px 1rem 1.2rem
+    }
+    .row__title{
+        margin-left: 1rem;
+    }
     .row__posters{
         padding-left: calc(1.4rem - 10px)
     }
     .row__poster{
-        height: 100px;
+        height: 70px;
     }
     .largRow{
-        height: 200px;
+        height: 180px;
+    }
+    .youtube__video{
+        top: -1.2rem;
     }
 } 
